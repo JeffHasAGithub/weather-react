@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { SearchBar } from "./SearchBar";
-import { WeatherDisplay } from "./WeatherDisplay";
 import { Container, VStack } from "@chakra-ui/react";
+import { SearchBar } from "./components/SearchBar";
+import { WeatherDisplay } from "./components/WeatherDisplay";
 import { Weather } from "./models";
 
 function App() {

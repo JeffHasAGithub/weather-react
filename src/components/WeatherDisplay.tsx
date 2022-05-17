@@ -1,5 +1,4 @@
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
-
 import { Weather } from "../models";
 
 interface Props {
