@@ -18,10 +18,16 @@ export function WeatherDisplay({ width, weather }: Props) {
       {weather && (
         <TabPanels>
           <TabPanel>
-            <WeatherCurrent current={weather.current} />
+            <WeatherCurrent
+              current={weather.current} 
+              location={weather.location}
+            />
           </TabPanel>
           <TabPanel>
-            <WeatherForecast forecast={weather.forecast} />
+            <WeatherForecast
+              forecast={weather.forecast}
+              location={weather.location}
+            />
           </TabPanel>
         </TabPanels>
       )}

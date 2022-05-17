@@ -11,7 +11,7 @@ export function WeatherSearch({ setWeather }: Props) {
   const fetchWeather = async () => {
     try {
       const resp = await fetch(
-        "http://localhost:9000/weather/forecast?q=dallas"
+        "http://localhost:9000/weather/forecast?q=dallas&days=5"
       );
       const json = await resp.json();
       const parsed = JSON.parse(JSON.stringify(json));
