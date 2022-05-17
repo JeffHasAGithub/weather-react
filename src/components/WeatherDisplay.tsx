@@ -1,5 +1,7 @@
-import { Tabs, Tab, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
-import { Weather } from "../models";
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '@chakra-ui/react';
+import { WeatherCurrent } from './WeatherCurrent';
+import { WeatherForecast } from './WeatherForecast';
+import { Weather } from '../models';
 
 interface Props {
   width: string;
@@ -16,10 +18,10 @@ export function WeatherDisplay({ width, weather }: Props) {
       {weather && (
         <TabPanels>
           <TabPanel>
-            <p>{weather?.location.name}</p>
+            <WeatherCurrent current={weather.current} />
           </TabPanel>
           <TabPanel>
-            <p>Two</p>
+            <WeatherForecast forecast={weather.forecast} />
           </TabPanel>
         </TabPanels>
       )}

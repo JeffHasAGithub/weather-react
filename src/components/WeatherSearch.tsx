@@ -7,7 +7,7 @@ interface Props {
   setWeather: Dispatch<SetStateAction<Weather | null>>;
 }
 
-export function SearchBar({ setWeather }: Props) {
+export function WeatherSearch({ setWeather }: Props) {
   const fetchWeather = async () => {
     try {
       const resp = await fetch(
