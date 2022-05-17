@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { Button } from "@chakra-ui/react";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 
-import { Weather } from "./models";
+import { Weather } from "../models";
 
 interface Props {
   setWeather: Dispatch<SetStateAction<Weather | null>>;
