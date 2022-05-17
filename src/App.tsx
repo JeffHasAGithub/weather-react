@@ -1,10 +1,19 @@
 import { useState } from 'react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { SearchBar }  from './SearchBar'
+import { WeatherDisplay } from './WeatherDisplay'
+import { Container, VStack } from '@chakra-ui/react'
 
 function App() {
   return (
-    <h1>App</h1>
+      <VStack spacing={24}>
+        <Container>
+          <SearchBar />
+        </Container>
+        <Container maxW="container.md">
+          <WeatherDisplay width={"100%"} />
+        </Container>
+      </VStack>
   )
 }
 
-export default App
+export default App;
