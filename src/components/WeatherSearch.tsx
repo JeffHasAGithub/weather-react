@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
-import { Button, Box, useToast } from "@chakra-ui/react";
-import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-import { Weather } from "../models";
+import { Dispatch, SetStateAction } from 'react';
+import { IconButton, useToast } from '@chakra-ui/react';
+import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons'
+import { Weather } from '../models';
 
 interface Props {
   setWeather: Dispatch<SetStateAction<Weather | null>>;
@@ -12,7 +13,7 @@ export function WeatherSearch({ setWeather }: Props) {
   const fetchWeather = async () => {
     try {
       const resp = await fetch(
-        "http://localhost:9000/weather/forecast?q=dallas&days=5"
+        'http://localhost:9000/weather/forecast?q=chicago&days=5'
       );
       const json = await resp.json();
       const parsed = JSON.parse(JSON.stringify(json));
@@ -35,12 +36,19 @@ export function WeatherSearch({ setWeather }: Props) {
   };
 
   return (
-    <InputGroup>
-      <Input placeholder="Ex: Dallas, TX" />
-      <InputRightElement width="4.5rem">
-        <Button colorScheme="blue" onClick={fetchWeather}>
+    <InputGroup
+      borderRadius='lg'
+      boxShadow='md'
+    >
+      <Input placeholder='Ex: Dallas, TX' />
+      <InputRightElement>
+        <IconButton 
+          icon={<SearchIcon />}
+          colorScheme='blue' 
+          aria-label='Search weather'
+          onClick={fetchWeather}>
           Submit
-        </Button>
+        </IconButton>
       </InputRightElement>
     </InputGroup>
   );

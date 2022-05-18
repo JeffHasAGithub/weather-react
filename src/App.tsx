@@ -12,7 +12,13 @@ function App() {
       <Container>
         <WeatherSearch setWeather={setWeather} />
       </Container>
-      <Container maxW="container.md">
+      <Container
+        maxW="container.md"
+        border="1px"
+        borderColor="gray.300"
+        borderRadius="lg"
+        boxShadow="md"
+        p={4}>
         <WeatherDisplay width="100%" weather={weather} />
       </Container>
     </VStack>
