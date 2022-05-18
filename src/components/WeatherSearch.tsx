@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { Button } from "@chakra-ui/react";
+import { Button, Box, useToast } from "@chakra-ui/react";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { Weather } from "../models";
 
@@ -8,6 +8,7 @@ interface Props {
 }
 
 export function WeatherSearch({ setWeather }: Props) {
+  const toast = useToast();
   const fetchWeather = async () => {
     try {
       const resp = await fetch(
@@ -23,6 +24,13 @@ export function WeatherSearch({ setWeather }: Props) {
       setWeather(w);
     } catch (err) {
       console.log(err);
+      toast({
+        position: 'bottom-left',
+        title: `Oops! We couldn't find the requested weather data!`,
+        status: 'error',
+        variant: 'left-accent',
+        isClosable: true,
+      })
     }
   };
 
