@@ -21,7 +21,7 @@ export function WeatherForecast({ forecast, location }: MainProps) {
             p={4}
           >
             <Flex w='100%'>
-              <Square>
+              <Square pl={4}>
                 <VStack>
                   <Text>{jdate.getWeekday(fday.date)}</Text>
                   <Text>{jdate.toLocale(fday.date)}</Text>
@@ -30,7 +30,7 @@ export function WeatherForecast({ forecast, location }: MainProps) {
               <Spacer />
               <Image src={fday.day.condition.icon} />
               <Spacer />
-              <Square>
+              <Square pr={4}>
                 <VStack>
                   <Text color='red.500'>{fday.day.maxtemp_f} <FontAwesomeIcon icon={faTemperatureHigh} /></Text>
                   <Text color='blue.500'>{fday.day.mintemp_f} <FontAwesomeIcon icon={faTemperatureLow} /></Text>
