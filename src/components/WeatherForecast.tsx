@@ -1,4 +1,6 @@
-import { HStack, VStack, Flex, Spacer, Square, Image } from '@chakra-ui/react'
+import { HStack, VStack, Flex, Spacer, Square, Text,  Image } from '@chakra-ui/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTemperatureHigh, faTemperatureLow } from '@fortawesome/free-solid-svg-icons';
 import { Forecast, ForecastDay, Location } from '../models';
 import jdate from '../utils/jdate';
 
@@ -21,15 +23,18 @@ export function WeatherForecast({ forecast, location }: MainProps) {
             <Flex w='100%'>
               <Square>
                 <VStack>
-                  <p>{jdate.getWeekday(fday.date)}</p>
-                  <p>{jdate.toLocale(fday.date)}</p>
+                  <Text>{jdate.getWeekday(fday.date)}</Text>
+                  <Text>{jdate.toLocale(fday.date)}</Text>
                 </VStack>
               </Square>
               <Spacer />
               <Image src={fday.day.condition.icon} />
               <Spacer />
               <Square>
-                <p>{`${fday.day.maxtemp_f} / ${fday.day.mintemp_f}`}</p>
+                <VStack>
+                  <Text color='red.500'>{fday.day.maxtemp_f} <FontAwesomeIcon icon={faTemperatureHigh} /></Text>
+                  <Text color='blue.500'>{fday.day.mintemp_f} <FontAwesomeIcon icon={faTemperatureLow} /></Text>
+                </VStack>
               </Square>
             </Flex>
           </HStack>
