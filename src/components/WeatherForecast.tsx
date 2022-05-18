@@ -15,6 +15,7 @@ export function WeatherForecast({ forecast, location }: MainProps) {
       { forecast.forecastday
         .map((fday, index) => (
           <HStack
+            key={index}
             w='100%'
             bg='gray.200'
             borderRadius='lg'
