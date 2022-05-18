@@ -16,7 +16,7 @@ function App() {
           <WeatherSearch setWeather={setWeather} />
         </Container>
         <Container
-          bgColor="rgb(255, 255, 255, .2)"
+          bgColor="rgb(255, 255, 255, .3)"
           maxW="container.md"
           border="1px"
           borderColor="gray.300"
@@ -25,7 +25,6 @@ function App() {
           p={4}>
           <WeatherDisplay 
             width="100%"
-            color='black'
             weather={weather} />
         </Container>
         <Spacer />

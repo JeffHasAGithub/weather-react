@@ -10,9 +10,9 @@ interface Props {
 
 export function WeatherDisplay({ width, weather }: Props) {
   return (
-    <Tabs width={width}>
+    <Tabs width={width} variant='solid-rounded'>
       <TabList>
-        <Tab>Current</Tab>
+        <Tab mx={2}>Current</Tab>
         <Tab>Forecast</Tab>
       </TabList>
       {weather && (
