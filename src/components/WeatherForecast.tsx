@@ -20,7 +20,10 @@ export function WeatherForecast({ forecast, location }: MainProps) {
           >
             <Flex w='100%'>
               <Square>
-                <p>{jdate.getWeekday(fday.date)}</p>
+                <VStack>
+                  <p>{jdate.getWeekday(fday.date)}</p>
+                  <p>{jdate.toLocale(fday.date)}</p>
+                </VStack>
               </Square>
               <Spacer />
               <Image src={fday.day.condition.icon} />

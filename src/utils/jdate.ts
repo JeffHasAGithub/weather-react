@@ -1,12 +1,4 @@
-const weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const weekdays = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
 export const jdate = {
   getWeekday: function (s: string): string {
@@ -20,6 +12,12 @@ export const jdate = {
     dt.setMinutes(dt.getMinutes() + tzOff);
 
     return dt;
+  },
+
+  toLocale: function (s: string): string {
+    const dt = this.toTimezone(new Date(s));
+
+    return dt.toLocaleDateString();
   },
 };
 
