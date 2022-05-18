@@ -1,0 +1,9 @@
+main {
+  height: 100vh;
+  color: white;
+
+  background-image: url('images/storm.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

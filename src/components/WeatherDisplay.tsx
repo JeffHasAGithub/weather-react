@@ -23,7 +23,7 @@ export function WeatherDisplay({ width, weather }: Props) {
               location={weather.location}
             />
           </TabPanel>
-          <TabPanel>
+          <TabPanel color='black'>
             <WeatherForecast
               forecast={weather.forecast}
               location={weather.location}

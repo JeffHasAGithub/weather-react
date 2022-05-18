@@ -37,6 +37,7 @@ export function WeatherSearch({ setWeather }: Props) {
 
   return (
     <InputGroup
+      background='white'
       borderRadius='lg'
       boxShadow='md'
     >
