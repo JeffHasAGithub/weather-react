@@ -13,7 +13,7 @@ export function WeatherSearch({ setWeather }: Props) {
   const fetchWeather = async () => {
     try {
       const resp = await fetch(
-        'http://localhost:9000/weather/forecast?q=chicago&days=5'
+        'http://localhost:9000/weather/forecast?q=dallas&days=5'
       );
       const json = await resp.json();
       const parsed = JSON.parse(JSON.stringify(json));
@@ -41,14 +41,13 @@ export function WeatherSearch({ setWeather }: Props) {
       borderRadius='lg'
       boxShadow='md'
     >
-      <Input placeholder='Ex: Dallas, TX' />
+      <Input mr='1' placeholder='Ex: Dallas, TX' />
       <InputRightElement>
         <IconButton 
           icon={<SearchIcon />}
           colorScheme='blue' 
           aria-label='Search weather'
           onClick={fetchWeather}>
-          Submit
         </IconButton>
       </InputRightElement>
     </InputGroup>

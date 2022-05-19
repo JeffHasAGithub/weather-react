@@ -5,6 +5,7 @@ import { WeatherDisplay } from "./components/WeatherDisplay";
 import { Weather } from "./models";
 import './css/App.css'
 
+
 function App() {
   const [weather, setWeather] = useState<Weather | null>(null);
 
@@ -16,7 +17,7 @@ function App() {
           <WeatherSearch setWeather={setWeather} />
         </Container>
         <Container
-          bgColor="rgb(255, 255, 255, .3)"
+          bgColor="rgb(255, 255, 255, .4)"
           maxW="container.md"
           border="1px"
           borderColor="gray.300"
@@ -25,7 +26,8 @@ function App() {
           p={4}>
           <WeatherDisplay 
             width="100%"
-            weather={weather} />
+            weather={weather}
+          />
         </Container>
         <Spacer />
       </VStack>

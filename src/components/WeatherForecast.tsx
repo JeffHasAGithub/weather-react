@@ -4,12 +4,15 @@ import { faTemperatureHigh, faTemperatureLow } from '@fortawesome/free-solid-svg
 import { Forecast, ForecastDay, Location } from '../models';
 import jdate from '../utils/jdate';
 
-interface MainProps {
+interface Props {
   forecast: Forecast;
   location: Location;
+  tempScale: TempScale;
 }
 
-export function WeatherForecast({ forecast, location }: MainProps) {
+type TempScale = `F` | `C`;
+
+export function WeatherForecast({ forecast, location, tempScale }: Props) {
   return (
     <VStack>
       { forecast.forecastday
@@ -22,7 +25,7 @@ export function WeatherForecast({ forecast, location }: MainProps) {
             p={4}
           >
             <Flex w='100%'>
-              <Square pl={4}>
+              <Square pl={2}>
                 <VStack>
                   <Text>{jdate.getWeekday(fday.date)}</Text>
                   <Text>{jdate.toLocale(fday.date)}</Text>
@@ -31,10 +34,18 @@ export function WeatherForecast({ forecast, location }: MainProps) {
               <Spacer />
               <Image src={fday.day.condition.icon} />
               <Spacer />
-              <Square pr={4}>
-                <VStack>
-                  <Text color='red.500'>{fday.day.maxtemp_f} <FontAwesomeIcon icon={faTemperatureHigh} /></Text>
-                  <Text color='blue.500'>{fday.day.mintemp_f} <FontAwesomeIcon icon={faTemperatureLow} /></Text>
+              <Square pr={2}>
+                <VStack width="4rem" align='flex-end'>
+                  { (tempScale === 'F')
+                      ? <>
+                        <Text color='red.500'>{fday.day.maxtemp_f} <FontAwesomeIcon icon={faTemperatureHigh} /></Text>
+                        <Text color='blue.500'>{fday.day.mintemp_f} <FontAwesomeIcon icon={faTemperatureLow} /></Text>
+                        </>
+                      : <>
+                        <Text color='red.500'>{fday.day.maxtemp_c} <FontAwesomeIcon icon={faTemperatureHigh} /></Text>
+                        <Text color='blue.500'>{fday.day.mintemp_c} <FontAwesomeIcon icon={faTemperatureLow} /></Text>
+                        </>
+                  }
                 </VStack>
               </Square>
             </Flex>
