@@ -2,7 +2,7 @@ main {
   height: 100vh;
   color: white;
 
-  background-image: url('images/moon.jpg');
+  background-image: url("images/moon.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
