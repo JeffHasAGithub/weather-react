@@ -17,6 +17,9 @@ export interface Location {
 export interface Current {
   condition: Condition;
   temp_f: number;
+  temp_c: number;
+  feelslike_f: number;
+  feelslike_c: number;
   wind_dir: string;
   wind_mph: string;
   is_day: number;

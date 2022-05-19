@@ -45,13 +45,14 @@ export function WeatherDisplay({ weather }: Props) {
         <Divider mt={4} />
         { weather && (
           <TabPanels>
-            <TabPanel>
+            <TabPanel color="gray.600">
               <WeatherCurrent
                 current={weather.current}
                 location={weather.location}
+                tempScale={tempScale}
               />
             </TabPanel>
-            <TabPanel color="black">
+            <TabPanel color="gray.600">
               <WeatherForecast
                 forecast={weather.forecast}
                 location={weather.location}
