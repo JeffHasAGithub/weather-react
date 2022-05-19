@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, VStack, Spacer } from "@chakra-ui/react";
+import { Container, VStack, Heading, Spacer } from "@chakra-ui/react";
 import { WeatherSearch } from "./components/WeatherSearch";
 import { WeatherDisplay } from "./components/WeatherDisplay";
 import { Weather } from "./models";
@@ -13,22 +13,12 @@ function App() {
     <main>
       <VStack spacing={24} mx={4}>
         <Spacer />
-        <Container>
-          <WeatherSearch setWeather={setWeather} />
-        </Container>
-        <Container
-          bgColor="rgb(255, 255, 255, .4)"
-          maxW="container.md"
-          border="1px"
-          borderColor="gray.300"
-          borderRadius="lg"
-          boxShadow="md"
-          p={4}>
-          <WeatherDisplay 
-            width="100%"
-            weather={weather}
-          />
-        </Container>
+        <WeatherSearch setWeather={setWeather} />
+        <Spacer />
+        <WeatherDisplay 
+          width="100%"
+          weather={weather}
+        />
         <Spacer />
       </VStack>
     </main>

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { IconButton, useToast } from '@chakra-ui/react';
+import { Container, IconButton, useToast } from '@chakra-ui/react';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons'
 import { Weather } from '../models';
@@ -36,20 +36,22 @@ export function WeatherSearch({ setWeather }: Props) {
   };
 
   return (
-    <InputGroup
-      background='white'
-      borderRadius='lg'
-      boxShadow='md'
-    >
-      <Input mr='1' placeholder='Ex: Dallas, TX' />
-      <InputRightElement>
-        <IconButton 
-          icon={<SearchIcon />}
-          colorScheme='blue' 
-          aria-label='Search weather'
-          onClick={fetchWeather}>
-        </IconButton>
-      </InputRightElement>
-    </InputGroup>
+    <Container>
+      <InputGroup
+        background='white'
+        borderRadius='lg'
+        boxShadow='md'
+      >
+        <Input mr='1' placeholder='Ex: Dallas, TX' />
+        <InputRightElement>
+          <IconButton 
+            icon={<SearchIcon />}
+            colorScheme='blue' 
+            aria-label='Search weather'
+            onClick={fetchWeather}>
+          </IconButton>
+        </InputRightElement>
+      </InputGroup>
+    </Container>
   );
 }
