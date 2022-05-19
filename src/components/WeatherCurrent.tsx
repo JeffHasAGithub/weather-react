@@ -28,10 +28,11 @@ export function WeatherCurrent({ current, location, tempScale }: Props) {
         { tempScale === "F"
           ? <VStack>
               <Text fontSize="2xl">{`${current.temp_f} `}<FontAwesomeIcon icon={faTemperatureHalf} /></Text>
-            <Text fontSize="xl">{`Feels like: ${current.feelslike_f} `}<FontAwesomeIcon icon={faTemperatureHalf} /></Text>
+              <Text fontSize="xl">{`Feels like: ${current.feelslike_f} `}<FontAwesomeIcon icon={faTemperatureHalf} /></Text>
             </VStack>
           : <VStack>
               <Text fontSize="2xl">{current.temp_c}{" "}<FontAwesomeIcon icon={faTemperatureHalf} /></Text>
+              <Text fontSize="xl">{`Feels like: ${current.feelslike_c} `}<FontAwesomeIcon icon={faTemperatureHalf} /></Text>
             </VStack>
         }
       </VStack>
