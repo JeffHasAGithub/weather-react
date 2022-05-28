@@ -3,6 +3,7 @@
   color: white;
 
   background-image: url("images/moon.jpg");
+	background-position: left top;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
