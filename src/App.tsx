@@ -13,6 +13,7 @@ export default function App() {
   return (
     <>
 			<WSearch setWeather={setWeather} />
+			<WLocation weather={weather} />
     </>
   );
 }
