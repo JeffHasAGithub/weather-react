@@ -1,11 +1,11 @@
 import { Container, Heading } from "@chakra-ui/react";
-import { Weather } from "../models";
+import * as Models from "../../../models";
 
 type Props = {
-  weather: Weather | null;
+  weather: Models.Weather | null;
 };
 
-export function WeatherHeading({ weather }: Props) {
+export default function WLocation({ weather }: Props) {
   return ( weather && <>
       <Container textAlign='center'>
         <Heading size='2xl'>{ `${weather.location.name}, ${weather.location.region}` }</Heading>

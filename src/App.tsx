@@ -1,13 +1,16 @@
-import { useState, useEffect, useRef } from "react";
-import { VStack } from "@chakra-ui/react";
-import { WeatherSearch } from "./components/WeatherSearch";
-import { WeatherHeading } from "./components/WeatherHeading";
-import { WeatherDisplay } from "./components/WeatherDisplay";
-import { Weather } from "./models";
-import "./css/App.css";
+import "./App.css"
 
-function App() {
-  const [weather, setWeather] = useState<Weather | null>(null);
+import React from "react"
+import { VStack } from "@chakra-ui/react";
+
+import WSearch from "./components/weather/wsearch"
+import WLocation from "./components/weather/wlocation"
+import WDisplay from "./components/weather/wdisplay"
+
+import * as Models from "./models"
+
+export default function App() {
+  const [weather, setWeather] = React.useState<Models.Weather | null>(null);
 
   const root = document.getElementById("root")!;
   useUpdateEffect(() => {
@@ -17,11 +20,11 @@ function App() {
   return (
     <>
     <VStack spacing={24} mx={4} py={24} minHeight="100vh">
-      <WeatherSearch setWeather={setWeather} />
+      <WSearch setWeather={setWeather} />
       { weather && (
           <VStack spacing={12} width="100%">
-            <WeatherHeading weather={weather} />
-            <WeatherDisplay weather={weather} />
+            <WLocation weather={weather} />
+            <WDisplay weather={weather} />
           </VStack>
         )
       }
@@ -30,15 +33,13 @@ function App() {
   );
 }
 
-const useUpdateEffect: typeof useEffect = (effect, deps) =>{
-  const count = useRef(0);
+const useUpdateEffect: typeof React.useEffect = (effect, deps) =>{
+  const count = React.useRef(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (count.current > 1)
       effect();
     else
       count.current++;
   }, deps);
 }
-
-export default App;

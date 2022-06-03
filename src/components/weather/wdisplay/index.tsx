@@ -1,18 +1,20 @@
-import { useState } from "react";
+import React from "react"
 import { Container, Tabs, Tab, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
 import { Button, Square, Spacer, Divider } from "@chakra-ui/react";
-import { WeatherCurrent } from "./WeatherCurrent";
-import { WeatherForecast } from "./WeatherForecast";
-import { Weather } from "../models";
 
-interface Props {
-  weather: Weather | null;
+import WCurrent from "./wcurrent"
+import WForecast from "./wforecast"
+
+import * as Models from "../../../models"
+
+type Props = {
+  weather: Models.Weather | null;
 }
 
 type TempScale = `F` | `C`;
 
-export function WeatherDisplay({ weather }: Props) {
-  const [tempScale, setTempScale] = useState<TempScale>("F");
+export default function WDisplay({ weather }: Props) {
+  const [tempScale, setTempScale] = React.useState<TempScale>("F");
 
   return (
     <Container
@@ -46,14 +48,14 @@ export function WeatherDisplay({ weather }: Props) {
         { weather && (
           <TabPanels>
             <TabPanel color="gray.600">
-              <WeatherCurrent
+              <WCurrent
                 current={weather.current}
                 location={weather.location}
                 tempScale={tempScale}
               />
             </TabPanel>
             <TabPanel color="gray.600">
-              <WeatherForecast
+              <WForecast
                 forecast={weather.forecast}
                 location={weather.location}
                 tempScale={tempScale}

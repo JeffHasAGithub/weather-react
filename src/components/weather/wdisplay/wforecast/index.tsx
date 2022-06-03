@@ -1,29 +1,20 @@
-import {
-  HStack,
-  VStack,
-  Flex,
-  Spacer,
-  Square,
-  Text,
-  Image,
-} from "@chakra-ui/react";
+import { HStack, VStack, Flex, Spacer } from "@chakra-ui/react"
+import { Square, Text, Image } from "@chakra-ui/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTemperatureHigh,
-  faTemperatureLow,
-} from "@fortawesome/free-solid-svg-icons";
-import { Forecast, ForecastDay, Location } from "../models";
-import jdate from "../utils/jdate";
+import { faTemperatureHigh, faTemperatureLow } from "@fortawesome/free-solid-svg-icons";
 
-interface Props {
-  forecast: Forecast;
-  location: Location;
+import * as Models from "../../../../models"
+import * as DateUtils from "../../utils/date_utils";
+
+type Props = {
+  forecast: Models.Forecast;
+  location: Models.Location;
   tempScale: TempScale;
 }
 
 type TempScale = `F` | `C`;
 
-export function WeatherForecast({ forecast, location, tempScale }: Props) {
+export default function WForecast({ forecast, location, tempScale }: Props) {
   return (
     <VStack>
       {forecast.forecastday.map((fday, index) => (
@@ -31,8 +22,8 @@ export function WeatherForecast({ forecast, location, tempScale }: Props) {
           <Flex w="100%">
             <Square pl={2}>
               <VStack>
-                <Text>{jdate.getWeekday(fday.date)}</Text>
-                <Text>{jdate.toLocale(fday.date)}</Text>
+                <Text>{DateUtils.getWeekday(fday.date)}</Text>
+                <Text>{DateUtils.toLocale(fday.date)}</Text>
               </VStack>
             </Square>
             <Spacer />

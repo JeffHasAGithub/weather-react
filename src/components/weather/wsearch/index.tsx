@@ -1,26 +1,27 @@
-import { useState, Dispatch, SetStateAction } from "react";
-import { Container, IconButton, useToast } from "@chakra-ui/react";
-import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
-import { jurl } from "../utils/jurl"
-import { Weather } from "../models";
+import React from "react"
+import { Container, IconButton, useToast } from "@chakra-ui/react"
+import { Input, InputGroup, InputRightElement } from "@chakra-ui/react"
+import { SearchIcon } from "@chakra-ui/icons"
+
+import * as Models from "../../../models"
+import * as UrlUtils from "../utils/url_utils"
 
 const HOST = import.meta.env.VITE_WAPI_HOST;
 const PORT = import.meta.env.VITE_WAPI_PORT;
 const EPNT = import.meta.env.VITE_WAPI_EPNT;
-const BASE_URL = jurl.buildURL("http", HOST, PORT, EPNT);
+const BASE_URL = UrlUtils.buildURL("http", HOST, PORT, EPNT);
 
-interface Props {
-  setWeather: Dispatch<SetStateAction<Weather | null>>;
+type Props = {
+  setWeather: React.Dispatch<React.SetStateAction<Models.Weather | null>>;
 }
 
-export function WeatherSearch({ setWeather }: Props) {
-	const [location, setLocation] = useState("");
+export default function WSearch({ setWeather }: Props) {
+	const [location, setLocation] = React.useState("");
 
   const toast = useToast();
   const fetchWeather = async () => {
-		const loc = jurl.escapeSpaces(location)
-		const params = jurl.buildParams({ key: "q", val: loc })
+		const loc = UrlUtils.escapeSpaces(location)
+		const params = UrlUtils.buildParams({ key: "q", val: loc })
 
     try {
       const resp = await fetch(BASE_URL + params);
@@ -30,7 +31,7 @@ export function WeatherSearch({ setWeather }: Props) {
 			if (parsed.location.name === "")
 				throw "Not a valid API response";
 
-      const w: Weather = {
+      const w: Models.Weather = {
         location: parsed.location,
         current: parsed.current,
         forecast: parsed.forecast,

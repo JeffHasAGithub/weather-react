@@ -2,18 +2,19 @@ import { Heading, Image, VStack, HStack } from "@chakra-ui/react";
 import { Flex, Square, Text, Spacer } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureHalf, faWind, faSun, faCloud, faWater, faEye } from "@fortawesome/free-solid-svg-icons";
-import { Current, Location } from "../models";
-import { jdate } from "../utils/jdate"
 
-interface Props {
-  current: Current;
-  location: Location;
+import * as Models from "../../../../models"
+import * as DateUtils from "../../utils/date_utils"
+
+type Props = {
+  current: Models.Current;
+  location: Models.Location;
   tempScale: TempScale;
 }
 
 type TempScale = `F` | `C`;
 
-export function WeatherCurrent({ current, location, tempScale }: Props) {
+export default function WCurrent({ current, location, tempScale }: Props) {
   return (
     <Flex flexWrap="wrap">
       <VStack
@@ -26,7 +27,7 @@ export function WeatherCurrent({ current, location, tempScale }: Props) {
       >
         <VStack>
           <Heading>{current.condition.text}</Heading>
-          <Text fontSize="lg">{jdate.toLocale(current.last_updated)}</Text>
+          <Text fontSize="lg">{DateUtils.toLocale(current.last_updated)}</Text>
         </VStack>
         <Image src={current.condition.icon} alt="weather icon" />
         { tempScale === "F"
