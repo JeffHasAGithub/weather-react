@@ -18,10 +18,19 @@ export default function App() {
 			{
 				weather &&
 					<>
-						<WLocation weather={weather} />
-						<WDisplay weather={weather} /> 
-						<WCurrent current={weather.current} location={weather.location} />
-						<WForecast forecast={weather.forecast} location={weather.location} />
+						<WLocation location={weather.location} />
+						<WDisplay
+							current={weather.current}
+							location={weather.location}
+						/> 
+						<WCurrent
+							current={weather.current}
+							location={weather.location}
+						/>
+						<WForecast
+							forecast={weather.forecast}
+							location={weather.location}
+						/>
 					</>
 			}
     </>

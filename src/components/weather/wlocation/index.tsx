@@ -3,19 +3,19 @@ import styles from "./wlocation.module.css"
 import * as Models from "../../../models"
 
 type Props = {
-  weather: Models.Weather | null;
+  location: Models.Location;
 };
 
-export default function WLocation({ weather }: Props) {
-  return ( weather &&
+export default function WLocation({ location }: Props) {
+  return (
 		<>
 			<section className={styles.wlocation}>
 				<h1
 					className={styles.region}
 				>
-					{`${weather.location.name}, ${weather.location.region}`}
+					{`${location.name}, ${location.region}`}
 				</h1>
-				<h2 className={styles.country}>{weather.location.country}</h2>
+				<h2 className={styles.country}>{location.country}</h2>
 			</section>
     </>
   );

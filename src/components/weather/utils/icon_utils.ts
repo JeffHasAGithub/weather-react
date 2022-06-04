@@ -1,4 +1,8 @@
-const ICONS = {
+type Icons = { [key: number]: { day: string, night: string } };
+
+const BASE_PATH = "images/";
+
+const ICONS: Icons = {
 	1000: { day: "clear_day.svg",			night: "clear_night.svg"	},	// sunny, clear
 	1003: { day: "cloudy_day.svg",		night: "cloudy.svg"				},	// partly cloudy
 	1006: { day: "cloudy.svg",				night: "cloudy.svg"				},	// cloudy
@@ -49,4 +53,7 @@ const ICONS = {
 	1282: { day: "snow.svg",					night: "snow.svg"					},	// moderate or heavy snow with thunder
 }
 
-export {}
+export function getIcon(code: number, isDay: boolean) {
+	const icon = (isDay) ? ICONS[code].day : ICONS[code].night;
+	return BASE_PATH + icon;
+}

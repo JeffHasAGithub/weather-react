@@ -49,5 +49,5 @@ export interface ForecastDay {
 
 export interface Condition {
   text: string;
-  icon: string;
+	code: number;
 }
