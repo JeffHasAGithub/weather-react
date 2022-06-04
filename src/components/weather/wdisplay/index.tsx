@@ -1,5 +1,5 @@
 import styles from "./wdisplay.module.css"
-import * as Models from "../../../models"
+import * as Models from "../models"
 import * as IconUtils from '../utils/icon_utils'
 
 type Props = {

@@ -13,7 +13,7 @@ export default function Weather() {
   const [weather, setWeather] = React.useState<Models.Weather | null>(null);
 
 	return (
-		<>
+		<main className={styles.weather}>
 			<WSearch setWeather={setWeather} />
 			{
 				weather &&
@@ -32,6 +32,6 @@ export default function Weather() {
 						/>
 					</>
 			}
-		</>
+		</main>
 	);
 }

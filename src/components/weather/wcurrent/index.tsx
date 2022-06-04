@@ -3,7 +3,7 @@ import styles from "./wcurrent.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSun, faWind, faCloudRain } from "@fortawesome/free-solid-svg-icons"
 
-import * as Models from "../../../models"
+import * as Models from "../models"
 import * as DateUtils from "../utils/date_utils"
 
 type Props = {

@@ -3,7 +3,7 @@ import styles from "./wsearch.module.css"
 import React from "react"
 
 import * as UrlUtils from "../utils/url_utils"
-import * as Models from "../../../models"
+import * as Models from "../models"
 
 const HOST = import.meta.env.VITE_WAPI_HOST;
 const PORT = import.meta.env.VITE_WAPI_PORT;

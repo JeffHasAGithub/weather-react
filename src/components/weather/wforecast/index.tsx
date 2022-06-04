@@ -1,6 +1,6 @@
 import styles from "./wforecast.module.css"
 
-import * as Models from "../../../models"
+import * as Models from "../models"
 import * as DateUtils from "../utils/date_utils";
 import * as IconUtils from "../utils/icon_utils";
 
