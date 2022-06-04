@@ -5,6 +5,7 @@ import WSearch from "./components/weather/wsearch"
 import WLocation from "./components/weather/wlocation"
 import WDisplay from "./components/weather/wdisplay"
 import WCurrent from "./components/weather/wcurrent"
+import WForecast from "./components/weather/wforecast"
 
 import * as Models from "./models"
 
@@ -17,6 +18,7 @@ export default function App() {
 			<WLocation weather={weather} />
 			<WDisplay /> 
 			<WCurrent />
+			<WForecast />
     </>
   );
 }

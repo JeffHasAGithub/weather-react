@@ -15,6 +15,9 @@ export default function WCurrent() {
   return (
 		<>
 			<section className={styles.wcurrent}>
+				<h4 className={styles.title}>
+					Current
+				</h4>
 				<div className={styles.widget}>
 					<div className={styles.head}>
 						<FontAwesomeIcon
