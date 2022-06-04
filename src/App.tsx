@@ -15,10 +15,15 @@ export default function App() {
   return (
     <>
 			<WSearch setWeather={setWeather} />
-			<WLocation weather={weather} />
-			<WDisplay /> 
-			<WCurrent />
-			<WForecast />
+			{
+				weather &&
+					<>
+						<WLocation weather={weather} />
+						<WDisplay weather={weather} /> 
+						<WCurrent current={weather.current} location={weather.location} />
+						<WForecast forecast={weather.forecast} location={weather.location} />
+					</>
+			}
     </>
   );
 }

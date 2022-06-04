@@ -34,6 +34,7 @@ export default function WSearch({ setWeather }: Props) {
         current: parsed.current,
         forecast: parsed.forecast,
       };
+			console.log(w);
       setWeather(w);
     } catch (err) {
       console.log(err);
@@ -47,9 +48,11 @@ export default function WSearch({ setWeather }: Props) {
 					className={styles.query}
 					type="text"
 					placeholder="Ex: Dallas, TX"
+					onChange={(ev) => setLocation(ev.target.value)}
 				/>
 				<button
 					className={styles.submit}
+					onClick={fetchWeather}
 				>
 					Search
 				</button>

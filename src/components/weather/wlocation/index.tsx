@@ -7,11 +7,15 @@ type Props = {
 };
 
 export default function WLocation({ weather }: Props) {
-  return (
+  return ( weather &&
 		<>
 			<section className={styles.wlocation}>
-				<h1 className={styles["city-state"]}>Dallas, TX</h1>
-				<h2 className={styles.region}>United States of America</h2>
+				<h1
+					className={styles.region}
+				>
+					{`${weather.location.name}, ${weather.location.region}`}
+				</h1>
+				<h2 className={styles.country}>{weather.location.country}</h2>
 			</section>
     </>
   );

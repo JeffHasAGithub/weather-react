@@ -11,7 +11,7 @@ type Props = {
   location: Models.Location;
 }
 
-export default function WCurrent() {
+export default function WCurrent({ current, location }: Props) {
   return (
 		<>
 			<section className={styles.wcurrent}>
@@ -28,11 +28,11 @@ export default function WCurrent() {
 					<div className={styles.tail}>
 						<p>
 							<strong>Temperature: </strong>
-							70F
+							{ `${current.temp_f} \u00b0F` }
 						</p>
 						<p>
 							<strong>Feels like: </strong>
-							60 F
+							{ `${current.feelslike_f} \u00b0F` }
 						</p>
 					</div>
 				</div>
@@ -46,11 +46,11 @@ export default function WCurrent() {
 					<div className={styles.tail}>
 						<p>
 							<strong>Wind Direction: </strong>
-							E
+							{ current.wind_dir }
 						</p>
 						<p>
 							<strong>Speed: </strong>
-							6.9 MPH
+							{ current.wind_mph } MPH
 						</p>
 					</div>
 				</div>
@@ -63,12 +63,12 @@ export default function WCurrent() {
 					</div>
 					<div className={styles.tail}>
 						<p>
-							<strong>Precipitation: </strong>
-							0.03 In
+							<strong>Humidity: </strong>
+							{ current.humidity }
 						</p>
 						<p>
 							<strong>Cloud %: </strong>
-							100
+							{ current.cloud }
 						</p>
 					</div>
 				</div>
