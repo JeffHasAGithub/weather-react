@@ -1,7 +1,19 @@
 .wdisplay {
 	margin: auto;
-
 	width: 80%;
+
+	text-align: center;
+
+	animation-name: fadein;
+	animation-duration: 2s;
+}
+
+.region {
+	font-size: 4rem;
+}
+
+.country {
+	font-size: 2rem;
 }
 
 .image {
@@ -9,7 +21,21 @@
 	height: auto;
 }
 
+.condition {
+	font-size: 2rem;
+}
+
 .dt {
 	font-size: 2rem;
 	text-align: center;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0%;
+	}
+
+	to {
+		opacity: 100%
+	}
 }

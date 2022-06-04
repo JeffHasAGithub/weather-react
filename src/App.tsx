@@ -1,8 +1,8 @@
 import "./App.css"
 
 import React from "react"
+
 import WSearch from "./components/weather/wsearch"
-import WLocation from "./components/weather/wlocation"
 import WDisplay from "./components/weather/wdisplay"
 import WCurrent from "./components/weather/wcurrent"
 import WForecast from "./components/weather/wforecast"
@@ -18,7 +18,6 @@ export default function App() {
 			{
 				weather &&
 					<>
-						<WLocation location={weather.location} />
 						<WDisplay
 							current={weather.current}
 							location={weather.location}

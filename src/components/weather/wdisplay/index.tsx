@@ -11,6 +11,12 @@ export default function WDisplay({ current, location }: Props) {
   return (
 		<>
 			<section className={styles.wdisplay}>
+				<h1
+					className={styles.region}
+				>
+					{`${location.name}, ${location.region}`}
+				</h1>
+				<h2 className={styles.country}>{location.country}</h2>
 				<img
 					className={styles.image}
 					src={IconUtils.getIcon(current.condition.code, Boolean(current.is_day))}
