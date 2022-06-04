@@ -3,18 +3,16 @@ import styles from "./wcurrent.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSun, faWind, faCloudRain } from "@fortawesome/free-solid-svg-icons"
 
-import * as Models from "../models"
-import * as DateUtils from "../utils/date_utils"
+import * as Models from "../../models"
 
 type Props = {
   current: Models.Current;
-  location: Models.Location;
 }
 
-export default function WCurrent({ current, location }: Props) {
+export default function WCurrent({ current }: Props) {
   return (
 		<>
-			<section className={styles.wcurrent}>
+			<div className={styles.wcurrent}>
 				<h4 className={styles.title}>
 					Current
 				</h4>
@@ -72,7 +70,7 @@ export default function WCurrent({ current, location }: Props) {
 						</p>
 					</div>
 				</div>
-			</section>
+			</div>
 		</>
   );
 }

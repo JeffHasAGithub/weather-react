@@ -4,8 +4,7 @@ import React from "react"
 
 import WSearch from "./wsearch"
 import WDisplay from "./wdisplay"
-import WCurrent from "./wcurrent"
-import WForecast from "./wforecast"
+import WConditions from "./wconditions"
 
 import * as Models from "./models"
 
@@ -17,20 +16,16 @@ export default function Weather() {
 			<WSearch setWeather={setWeather} />
 			{
 				weather &&
-					<>
+					<section className={styles.flex}>
 						<WDisplay
 							current={weather.current}
 							location={weather.location}
 						/> 
-						<WCurrent
+						<WConditions
 							current={weather.current}
-							location={weather.location}
-						/>
-						<WForecast
 							forecast={weather.forecast}
-							location={weather.location}
 						/>
-					</>
+					</section>
 			}
 		</main>
 	);

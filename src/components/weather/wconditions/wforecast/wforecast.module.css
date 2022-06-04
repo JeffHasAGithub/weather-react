@@ -1,5 +1,5 @@
 .wforecast {
-	margin: auto;
+	width: 100%;
 	
 	color: white;
 }
@@ -16,6 +16,7 @@
 
 	border-radius: 10px;
 
+	box-shadow: var(--primary-shadow);
 	background-color: var(--color-blue-2);
 }
 
@@ -27,6 +28,8 @@
 .widget {
 	padding-block: 1rem;
 	width: 100%;
+
+	box-shadow: var(--primary-shadow);
 	background-color: var(--color-blue-3);
 }
 
