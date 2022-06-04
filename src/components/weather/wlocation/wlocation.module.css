@@ -1,0 +1,27 @@
+.wlocation {
+	margin: auto;
+	width: 80%;
+
+	text-align: center;
+
+	animation-name: fadein;
+	animation-duration: 2s;
+}
+
+.city-state {
+	font-size: 4rem;
+}
+
+.region {
+	font-size: 2rem;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0%;
+	}
+
+	to {
+		opacity: 100%
+	}
+}
