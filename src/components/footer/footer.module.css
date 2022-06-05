@@ -1,0 +1,25 @@
+.footer {
+	padding: 10rem;
+
+	font-size: 1.25rem;
+	text-align: center;
+
+	box-shadow: var(--primary-shadow);
+	background-color: white;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	gap: 1rem;
+}
+
+.link {
+	text-decoration: none;
+	color: var(--color-blue-5);
+}
+
+@media only screen and (min-width: 600px) {
+	.footer {
+		flex-direction: row;
+	}
+}

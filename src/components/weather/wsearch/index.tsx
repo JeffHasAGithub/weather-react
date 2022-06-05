@@ -26,8 +26,9 @@ export default function WSearch({ setWeather }: Props) {
       const json = await resp.json();
       const parsed = JSON.parse(JSON.stringify(json));
 
-			if (parsed.location.name === "")
+			if (parsed.location.name === "") {
 				throw "Not a valid API response";
+			}
 
       const w: Models.Weather = {
         location: parsed.location,
@@ -37,6 +38,7 @@ export default function WSearch({ setWeather }: Props) {
 			console.log(w);
       setWeather(w);
     } catch (err) {
+			alert("Could not retrieve the requested data. Try again!");
       console.log(err);
     }
   };
