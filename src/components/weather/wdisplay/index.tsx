@@ -1,5 +1,6 @@
 import styles from "./wdisplay.module.css"
 import * as Models from "../models"
+import * as DateUtils from "../utils/date_utils"
 import * as IconUtils from '../utils/icon_utils'
 
 type Props = {
@@ -21,8 +22,8 @@ export default function WDisplay({ current, location }: Props) {
 					className={styles.image}
 					src={IconUtils.getIcon(current.condition.code, Boolean(current.is_day))}
 				/>
-				<h3 className={styles.dt}>{ location.localtime }</h3>
-				<h3 className={styles.dt}>6:00 PM</h3>
+				<h3 className={styles.dt}>{ DateUtils.toLocale(location.localtime) }</h3>
+				<h3 className={styles.dt}>{ DateUtils.getCurrentTime(location.localtime) }</h3>
 			</section>
 		</>
   );

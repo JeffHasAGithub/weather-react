@@ -35,9 +35,19 @@
 	color: white;
 	font-family: var(--primary-fonts);
 
+	cursor: pointer;
+
 	border: none;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 
 	background-color: var(--color-blue-3);
+}
+
+.submit:hover {
+	background-color: var(--color-blue-4);
+}
+
+.submit:active {
+	background-color: var(--color-blue-2);
 }

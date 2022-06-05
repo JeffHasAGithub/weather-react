@@ -26,11 +26,11 @@ export default function WCurrent({ current }: Props) {
 					<div className={styles.tail}>
 						<p>
 							<strong>Temperature: </strong>
-							{ `${current.temp_f} \u00b0F` }
+							{ `${current.temp_f}\u00b0F` }
 						</p>
 						<p>
 							<strong>Feels like: </strong>
-							{ `${current.feelslike_f} \u00b0F` }
+							{ `${current.feelslike_f}\u00b0F` }
 						</p>
 					</div>
 				</div>
