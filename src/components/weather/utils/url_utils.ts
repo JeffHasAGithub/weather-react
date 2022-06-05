@@ -1,4 +1,4 @@
-type Query = { key: string; val: string };
+export type Query = { key: string; val: string };
 
 export function escapeSpaces(str: string): string {
 	const fmt = str.trim();

@@ -4,7 +4,7 @@ const BASE_PATH = "images/";
 
 const ICONS: Icons = {
 	1000: { day: "clear_day.svg",			night: "clear_night.svg"	},	// sunny, clear
-	1003: { day: "cloudy_day.svg",		night: "cloudy.svg"				},	// partly cloudy
+	1003: { day: "cloudy_day.svg",		night: "cloudy_night.svg"	},	// partly cloudy
 	1006: { day: "cloudy.svg",				night: "cloudy.svg"				},	// cloudy
 	1009: { day: "cloudy_rain.svg",		night: "cloudy_rain.svg"	},	// overcast
 	1030: { day: "cloudy_rain.svg",		night: "cloudy_rain.svg"	},	// mist
@@ -53,7 +53,10 @@ const ICONS: Icons = {
 	1282: { day: "snow.svg",					night: "snow.svg"					},	// moderate or heavy snow with thunder
 }
 
-export function getIcon(code: number, isDay: boolean) {
+export function getIcon(code: number, isDay: boolean): string {
+	if (ICONS[code] === undefined)
+		throw `${code} not a valid code`
+
 	const icon = (isDay) ? ICONS[code].day : ICONS[code].night;
 	return BASE_PATH + icon;
 }
